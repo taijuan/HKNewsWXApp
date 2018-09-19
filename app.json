@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/news/news",
+    "pages/welcome/welcome",
+    "pages/focus/focus",
+    "pages/epaper/epaper",
+    "pages/video/video",
+    "pages/me/me",
+    "pages/web/web"
+  ],
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#262b2e",
+    "selectedColor": "#038dff",
+    "list": [
+      {
+        "pagePath": "pages/news/news",
+        "text": "News",
+        "iconPath": "images/news.png",
+        "selectedIconPath": "images/news_selected.png"
+      },
+      {
+        "pagePath": "pages/focus/focus",
+        "text": "Focus",
+        "iconPath": "images/focus.png",
+        "selectedIconPath": "images/focus_selected.png"
+      },
+      {
+        "pagePath": "pages/epaper/epaper",
+        "text": "EPaper",
+        "iconPath": "images/epaper.png",
+        "selectedIconPath": "images/epaper_selected.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "Video",
+        "iconPath": "images/video.png",
+        "selectedIconPath": "images/video_selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "Me",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me_selected.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#038dff",
+    "navigationBarTitleText": "HKNews",
+    "navigationBarTextStyle": "lihgt",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+  }
+}

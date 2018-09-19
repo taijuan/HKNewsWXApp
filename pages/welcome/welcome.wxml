@@ -1,0 +1,5 @@
+<view class="container" style="flex-direction:column">
+  <image class="welcome-image" src="{{imageUrl}}" mode='aspectFit'>
+  </image>
+  <text >welcome!!!</text>
+</view>

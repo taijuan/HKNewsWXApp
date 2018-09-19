@@ -1,0 +1,14 @@
+<view class='video-list'>
+  <block wx:for="{{array}}">
+    <view class='video-container' data-url='{{item.murl}}' bindtap='goToWeb'>
+      <image class="video-image" src='{{"https://www.chinadailyhk.com"+item.bigTitleImage}}' mode="aspectFill"></image>
+      <text class="video-name">{{item.title}}</text>
+    </view>
+  </block>
+  <view wx:if="{{array.length!=0}}" class='load-more'>
+    <view wx:if='{{isLoadMore}}'>正在加载...</view>
+    <view wx:else>没有更多数据了...</view>
+  </view>
+  <view wx:else>
+  </view>
+</view>

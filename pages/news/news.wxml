@@ -1,0 +1,31 @@
+<view class='view-container'>
+  <block wx:for='{{maps}}'>
+    <view class='page-view' hidden='{{index!=curIndex}}'>
+      <block wx:if='{{item.hot.length!=0}}'>
+        <swiper class='page-header' autoplay='true' indicator-dots='true' indicator-active-color='#fff' circular='true '>
+          <swiper-item wx:for='{{item.hot}}'>
+            <image src='{{"https://www.chinadailyhk.com"+item.bigTitleImage}}' mode="aspectFill" class='page-header' data-url='{{item.murl}}' bindtap='goToWeb'></image>
+          </swiper-item>
+        </swiper>
+      </block>
+      <block wx:for='{{item.data}}'>
+        <view class='image-item' data-url='{{item.murl}}' bindtap='goToWeb'>
+          <image class="image-view" src='{{ "https://www.chinadailyhk.com"+item.bigTitleImage}} ' mode="aspectFill">
+          </image>
+          <text class="image-name">{{item.title}}</text>
+        </view>
+      </block>
+      <block wx:if="{{item.data.length!=0}}">
+        <view class='load-more '>
+          <view wx:if='{{item.isLoadMore}} '>正在加载...</view>
+          <view wx:else>没有更多数据了...</view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <scroll-view scroll-x="true" class="tab-container" scroll-left="{{scrollLeft}}">
+    <block wx:for="{{maps}}">
+      <view class="tab-item {{curIndex==index?'active ':' '}}" data-index="{{index}}" bindtap="onTabChange">{{item.name}}</view>
+    </block>
+  </scroll-view>
+</view>
