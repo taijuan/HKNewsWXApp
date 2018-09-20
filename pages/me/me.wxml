@@ -1,2 +1,9 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class='view-container'>
+  <block wx:for='{{data}}'>
+    <navigator class='view-item' url='{{item.pagePath}}'>
+      <image class='icon' src="{{item.icon}}" mode='aspectFit'></image>
+      <view class='name'>{{item.name}}</view>
+      <image class='next' src="../../images/next.png" mode='aspectFit'></image>
+    </navigator>
+  </block>
+</view>
