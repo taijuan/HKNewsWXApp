@@ -126,7 +126,7 @@ Page({
           item.data = res.data.resObject.dateList
         }
         item.curPage = curPage
-        item.isLoadMore = index != 0
+        item.isLoadMore = !isHome
         that.setData({
           maps: ab
         })
@@ -157,9 +157,10 @@ Page({
     wx.request({
       url: url,
       success: function(res) {
-        item.data = item.data.concat(res.data.resObject.dateList)
+        var a = res.data.resObject.dateList
+        item.data = item.data.concat(a)
         item.curPage = curPage
-        item.isLoadMore = index != 0
+        item.isLoadMore = a.length!=0
         that.setData({
           maps: ab
         })

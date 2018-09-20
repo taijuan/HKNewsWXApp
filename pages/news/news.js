@@ -111,8 +111,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    var ab = this.data.maps
     var index = this.data.curIndex
-    var name = this.data.maps[this.data.curIndex].value
+    var item = ab[index]
+    var name = ab[index].value
     var curPage = 1
     var url = ""
     var isHome = name == "home"
@@ -122,19 +124,20 @@ Page({
       url = "https://api.cdeclips.com/hknews-api/selectNewsList?subjectCode=" + name + "&currentPage=" + curPage + "&dataType=1"
     }
     var that = this;
-    var ab = that.data.maps
-    var item = ab[index]
     wx.request({
       url: url,
       success: function(res) {
         if (isHome) {
           item.hot = res.data.resObject.top_focus
           item.data = res.data.resObject.allLists
+          item.isLoadMore = false
         } else {
           item.data = res.data.resObject.dateList
+          item.isLoadMore = true
         }
         item.curPage = curPage
-        item.isLoadMore = index != 0
+        console.log(that.data)
+        console.log(ab)
         that.setData({
           maps: ab
         })
@@ -155,8 +158,10 @@ Page({
     var index = this.data.curIndex
     var name = this.data.maps[this.data.curIndex].value
     if (name == "home") {
+      console.log("home")
       return
     }
+    console.log("ohter")
     var curPage = this.data.maps[this.data.curIndex].curPage + 1
     var url = "https://api.cdeclips.com/hknews-api/selectNewsList?subjectCode=" + name + "&currentPage=" + curPage + "&dataType=1"
     var that = this;
@@ -165,9 +170,10 @@ Page({
     wx.request({
       url: url,
       success: function(res) {
-        item.data = item.data.concat(res.data.resObject.dateList)
+        var a = res.data.resObject.dateList
+        item.data = item.data.concat(a)
         item.curPage = curPage
-        item.isLoadMore = index != 0
+        item.isLoadMore = a.length != 0
         that.setData({
           maps: ab
         })
@@ -194,12 +200,14 @@ Page({
   onTabChange: function(e) {
     var index = e.currentTarget.dataset.index
     var a = this.data.maps[index].data
-    if (a.length == 0) {
-      wx.startPullDownRefresh()
-    }
+    console.log(index)
     this.setData({
       curIndex: index
     })
+    if (a.length == 0) {
+      wx.startPullDownRefresh()
+    }
+
   },
   goToWeb: function(e) {
     var url = 'https://www.chinadailyhk.com' + e.currentTarget.dataset.url

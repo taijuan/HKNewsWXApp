@@ -16,8 +16,8 @@
         </view>
       </block>
       <block wx:if="{{item.data.length!=0}}">
-        <view class='load-more '>
-          <view wx:if='{{item.isLoadMore}} '>正在加载...</view>
+        <view class='load-more'>
+          <view wx:if='{{item.isLoadMore}}'>正在加载...</view>
           <view wx:else>没有更多数据了...</view>
         </view>
       </block>

@@ -1,0 +1,25 @@
+<view class='view-container'>
+  <video wx:if="{{data!=null&&data.txyUrl.length!=0}}" class='video-container' src="{{data.txyUrl}}" autoplay='true'></video>
+  <scroll-view class='video-data' wx:if="{{data!=null}}" scroll-y='true'>
+    <view class='video-info'>
+      <view class='video-name'>{{data.title}}</view>
+      <view class='video-description'>{{data.description}}</view>
+      <view class='video-subject-publish'>
+        <view class='video-subject'>{{data.subjectName}}</view>
+        <view class='video-publish'>{{data.publishTime}}</view>
+      </view>
+    </view>
+    <block wx:for="{{array}}">
+      <view class='image-item' data-data-id='{{item.dataId}}' bindtap='goToVideoDetail'>
+        <image class="image-view" src='{{"https://www.chinadailyhk.com"+item.bigTitleImage}}' mode="aspectFill"></image>
+        <text class="image-name">{{item.title}}</text>
+      </view>
+    </block>
+    <view wx:if="{{array.length!=0}}" class='load-more'>
+      <view wx:if='{{isLoadMore}}'>正在加载...</view>
+      <view wx:else>没有更多数据了...</view>
+    </view>
+    <view wx:else>
+    </view>
+  </scroll-view>
+</view>

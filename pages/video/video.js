@@ -28,7 +28,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+      
   },
 
   /**
@@ -124,11 +124,10 @@ Page({
 
   },
 
-  goToWeb: function (e) {
-    var url = 'https://www.chinadailyhk.com' + e.currentTarget.dataset.url
-    console.log(url)
+  goToVideoDetail: function (e) {
+    var dataId = e.currentTarget.dataset.dataId
     wx.navigateTo({
-      url: '../../pages/web/web?url=' + url,
+      url: '../../pages/video-detail/video-detail?dataId=' + dataId,
     })
   }
 })

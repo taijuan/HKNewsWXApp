@@ -1,2 +1,14 @@
-<!--pages/epaper/epaper.wxml-->
-<text>pages/epaper/epaper.wxml</text>
+<view class='view-container'>
+  <view class='epaper-header'>
+    <image class='image-epaper' src='{{epaper_backgroud}}' mode='widthFix'></image>
+    <image class='iamge-text' src='{{epaper_text}}' mode='widthFix'></image>
+  </view>
+  <swiper class='page-container' circular='true' previous-margin='120rpx' next-margin='120rpx'>
+    <block wx:for='{{epapers}}'>
+      <swiper-item class='page-item' data-url='{{item.epaperUrl}}' bindtap='goToWeb'>
+        <image class='image' src='{{item.imageUrl}}' mode='widthFix'></image>
+        <text class='name'>{{item.publicationName}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
