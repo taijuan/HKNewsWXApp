@@ -193,13 +193,5 @@ Page({
     this.setData({
       curIndex: index
     })
-  },
-
-  goToWeb: function (e) {
-    var url = 'https://www.chinadailyhk.com' + e.currentTarget.dataset.url
-    console.log(url)
-    wx.navigateTo({
-      url: '../../pages/web/web?url=' + url,
-    })
   }
 })

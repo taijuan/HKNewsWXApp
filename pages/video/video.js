@@ -123,11 +123,4 @@ Page({
   onShareAppMessage: function() {
 
   },
-
-  goToVideoDetail: function (e) {
-    var dataId = e.currentTarget.dataset.dataId
-    wx.navigateTo({
-      url: '../../pages/video-detail/video-detail?dataId=' + dataId,
-    })
-  }
 })

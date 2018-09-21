@@ -1,14 +1,18 @@
 <view class='view-container'>
-  <view class='epaper-header'>
-    <image class='image-epaper' src='{{epaper_backgroud}}' mode='widthFix'></image>
-    <image class='iamge-text' src='{{epaper_text}}' mode='widthFix'></image>
+  <view class='view-container'>
+    <view class='epaper-header'>
+      <image class='image-epaper' src='{{epaper_backgroud}}' mode='widthFix'></image>
+      <image class='iamge-text' src='{{epaper_text}}' mode='widthFix'></image>
+    </view>
+    <swiper class='page-container' circular='true' previous-margin='120rpx' next-margin='120rpx'>
+      <block wx:for='{{epapers}}' wx:key="publicationName">
+        <swiper-item class='page-item' data-url='{{item.epaperUrl}}' bindtap='goToWeb'>
+          <navigator class='page-item' url="{{'../../pages/web/web?url='+item.epaperUrl}}">
+            <image class='image' src='{{item.imageUrl}}' mode='widthFix'></image>
+            <text class='name'>{{item.publicationName}}</text>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-  <swiper class='page-container' circular='true' previous-margin='120rpx' next-margin='120rpx'>
-    <block wx:for='{{epapers}}'>
-      <swiper-item class='page-item' data-url='{{item.epaperUrl}}' bindtap='goToWeb'>
-        <image class='image' src='{{item.imageUrl}}' mode='widthFix'></image>
-        <text class='name'>{{item.publicationName}}</text>
-      </swiper-item>
-    </block>
-  </swiper>
 </view>

@@ -1,3 +1,8 @@
+.navigator-hover {
+  /* color: blue; */
+  opacity: 0.5;
+}
+
 .view-container {
   width: 100%;
   box-sizing: content-box;
@@ -54,6 +59,7 @@
   width: 750rpx;
   height: 422rpx;
 }
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -76,6 +82,12 @@
   background-color: #fff;
   margin: 16rpx;
   box-sizing: content-box;
+  border-radius: 16rpx;
+  /* border-color: red; */
+  border-width: 0rpx;
+  overflow: hidden;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx #aaa;
+  border-style: outset;
 }
 
 .image-view {
@@ -85,4 +97,19 @@
 
 .image-name {
   padding: 16rpx;
+  font-size: 28rpx;
+  color: black;
+}
+
+.image-description {
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  font-size: 24rpx;
+  color: gray;
+}
+
+.image-publishTime {
+  padding: 16rpx;
+  font-size: 24rpx;
+  color: blue;
 }

@@ -207,13 +207,5 @@ Page({
     if (a.length == 0) {
       wx.startPullDownRefresh()
     }
-
-  },
-  goToWeb: function(e) {
-    var url = 'https://www.chinadailyhk.com' + e.currentTarget.dataset.url
-    console.log(e)
-    wx.navigateTo({
-      url: '../../pages/web/web?url=' + url,
-    })
   }
 })

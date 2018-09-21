@@ -1,19 +1,23 @@
 <view class='view-container'>
-  <block wx:for='{{maps}}'>
+  <block wx:for='{{maps}}' wx:key="name">
     <view class='page-view' hidden='{{index!=curIndex}}'>
       <block wx:if='{{item.hot.length!=0}}'>
         <swiper class='page-header' autoplay='true' indicator-dots='true' indicator-active-color='#fff' circular='true '>
-          <swiper-item wx:for='{{item.hot}}'>
-            <image src='{{"https://www.chinadailyhk.com"+item.bigTitleImage}}' mode="aspectFill" class='page-header' data-url='{{item.murl}}' bindtap='goToWeb'></image>
+          <swiper-item wx:for='{{item.hot}}' wx:key="dataId">
+            <navigator url='{{"../../pages/web/web?url=https://www.chinadailyhk.com"+item.murl}}'>
+              <image src='{{"https://www.chinadailyhk.com"+item.bigTitleImage}}' mode="aspectFill" class='page-header'></image>
+            </navigator>
           </swiper-item>
         </swiper>
       </block>
-      <block wx:for='{{item.data}}'>
-        <view class='image-item' data-url='{{item.murl}}' bindtap='goToWeb'>
+      <block wx:for='{{item.data}}' wx:key="dataId">
+        <navigator class='image-item' url='{{"../../pages/web/web?url=https://www.chinadailyhk.com"+item.murl}}'>
           <image class="image-view" src='{{ "https://www.chinadailyhk.com"+item.bigTitleImage}} ' mode="aspectFill">
           </image>
           <text class="image-name">{{item.title}}</text>
-        </view>
+          <text class="image-description">{{item.description}}</text>
+          <text class="image-publishTime">{{item.publishTime}}</text>
+        </navigator>
       </block>
       <block wx:if="{{item.data.length!=0}}">
         <view class='load-more'>
@@ -24,7 +28,7 @@
     </view>
   </block>
   <scroll-view scroll-x="true" class="tab-container" scroll-left="{{scrollLeft}}">
-    <block wx:for="{{maps}}">
+    <block wx:for="{{maps}}" wx:key='name'>
       <view class="tab-item {{curIndex==index?'active ':' '}}" data-index="{{index}}" bindtap="onTabChange">{{item.name}}</view>
     </block>
   </scroll-view>

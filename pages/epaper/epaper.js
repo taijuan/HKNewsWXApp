@@ -70,10 +70,8 @@ Page({
         a.forEach(function(e) {
           var code = e.publicationCode
           var date = e.pubDate.replace("-", "/").replace("-", "/")
-          console.log(e.puDate)
-          var url = "https://epaperlib.chinadailyhk.com/pubs/" + code + "/" + date + "/issue.json"
           wx.request({
-            url: url,
+              url: "https://epaperlib.chinadailyhk.com/pubs/" + code + "/" + date + "/issue.json",
             success: function(b) {
               console.log(b)
               e.imageUrl = "https://epaperlib.chinadailyhk.com/pubs" + b.data.data[0].snapshotBigUrl
@@ -104,11 +102,4 @@ Page({
   onShareAppMessage: function() {
 
   },
-  goToWeb: function (e) {
-    var url = e.currentTarget.dataset.url
-    console.log(e)
-    wx.navigateTo({
-      url: '../../pages/web/web?url=' + url,
-    })
-  }
 })

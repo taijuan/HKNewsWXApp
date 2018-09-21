@@ -35,7 +35,11 @@ page{
   margin: 16rpx;
   padding: 16rpx;
   background-color: #fff;
-  border-radius: 8rpx;
+  border-radius: 16rpx;
+  border-width: 0rpx;
+  border-style: outset;
+  overflow: hidden;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx #aaa;
 }
 .video-name{
   width: 100%;

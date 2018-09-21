@@ -1,13 +1,15 @@
 <view class='view-container'>
   <view class='video-data'>
-    <block wx:for='{{array}}'>
-      <view class='image-item' data-data-id='{{item.dataId}}' bindtap='goToVideoDetail'>
+    <block wx:for='{{array}}' wx:key="dataId">
+      <navigator class='image-item' url='{{"../../pages/video-detail/video-detail?dataId="+ item.dataId}}'>
         <image class="image-view" src='{{ "https://www.chinadailyhk.com"+item.bigTitleImage}} ' mode="aspectFill">
         </image>
         <text class="image-name">{{item.title}}</text>
-      </view>
+        <text class="image-description">{{item.description}}</text>
+        <text class="image-publishTime">{{item.publishTime}}</text>
+      </navigator>
     </block>
-    <block wx:if="{{item.data.length!=0}}">
+    <block wx:if="{{array.length!=0}}">
       <view class='load-more '>
         <view wx:if='{{item.isLoadMore}} '>正在加载...</view>
         <view wx:else>没有更多数据了...</view>

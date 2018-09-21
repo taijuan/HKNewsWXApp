@@ -1,5 +1,5 @@
 <view class='view-container'>
-  <block wx:for='{{data}}'>
+  <block wx:for='{{data}}' wx:key="icon">
     <navigator class='view-item' url='{{item.pagePath}}'>
       <image class='icon' src="{{item.icon}}" mode='aspectFit'></image>
       <view class='name'>{{item.name}}</view>
