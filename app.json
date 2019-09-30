@@ -49,9 +49,10 @@
   "window": {
     "navigationBarBackgroundColor": "#038dff",
     "navigationBarTitleText": "HKNews",
-    "navigationBarTextStyle": "lihgt",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
     "backgroundColor": "#f5f5f5"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
